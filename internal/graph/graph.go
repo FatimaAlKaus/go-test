@@ -26,6 +26,9 @@ func GetEdges(matrix [][]int) ([]Edge, error) {
 
 	edges := make([]Edge, len(matrix[0]))
 	for i := 0; i < len(matrix); i++ {
+		if len(matrix[i]) == 0 {
+			return nil, ErrEmptyMatrix
+		}
 		for j := 0; j < len(matrix[i]); j++ {
 			if matrix[i][j] != 0 {
 				edges[j].Vertices = append(edges[j].Vertices, i)

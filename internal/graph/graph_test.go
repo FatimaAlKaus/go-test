@@ -13,6 +13,9 @@ func TestGetEdges(t *testing.T) {
 		err   error
 	}{
 		{input: [][]int{}, want: nil, err: ErrEmptyMatrix},
+		{input: [][]int{{0}}, want: []Edge{{nil}}, err: nil},
+		{input: nil, want: nil, err: ErrEmptyMatrix},
+		{input: [][]int{{}, {}, {}}, want: nil, err: ErrEmptyMatrix},
 		{input: [][]int{
 			{1, 1, 1},
 			{1, 1, 1},
